@@ -6,6 +6,8 @@
 
 #### Part 1
 
+https://user-images.githubusercontent.com/31375047/115412593-d7262880-a1ca-11eb-963c-245247b4d54e.mp4
+
 This folder contains the application for **part 1** of the **first assignment**:
 
 - Create an Android project from scratch, without relying on any branch presented in class;

@@ -8,5 +8,6 @@ import kotlinx.android.parcel.Parcelize
 data class Item(
 	var imageUri: Uri?,
 	var title: String,
-	var description: String
+	var description: String,
+	var uuid: String,
 ): Parcelable

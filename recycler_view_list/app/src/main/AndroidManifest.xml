@@ -13,14 +13,17 @@
 		android:theme="@style/Theme.Anilist">
 		<activity
 			android:name="com.cesarschool.recycler_view_list.DetailsActivity"
-			android:configChanges="keyboardHidden|orientation|screenSize" />
+			android:configChanges="keyboardHidden|orientation|screenSize"
+			android:parentActivityName="com.cesarschool.recycler_view_list.MainActivity" />
 		<activity
 			android:name="com.cesarschool.recycler_view_list.SecondActivity"
 			android:configChanges="keyboardHidden|orientation|screenSize"
-			android:windowSoftInputMode="adjustPan" />
+			android:windowSoftInputMode="adjustPan"
+			android:parentActivityName="com.cesarschool.recycler_view_list.MainActivity" />
 		<activity
 			android:name="com.cesarschool.recycler_view_list.MainActivity"
-			android:configChanges="keyboardHidden|orientation|screenSize">
+			android:configChanges="keyboardHidden|orientation|screenSize"
+			android:launchMode="singleTask">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />

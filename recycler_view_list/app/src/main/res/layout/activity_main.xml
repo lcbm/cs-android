@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
+	tools:context=".MainActivity"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	tools:context=".MainActivity">
+	android:layout_height="match_parent" >
+
+	<com.google.android.material.appbar.AppBarLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical">
+
+		<include layout="@layout/toolbar"
+			android:id="@+id/toolbar" />
+
+	</com.google.android.material.appbar.AppBarLayout>
 
 	<androidx.recyclerview.widget.RecyclerView
 		android:id="@+id/recyclerView"
@@ -13,7 +23,8 @@
 		android:layout_height="match_parent"
 		android:clipToPadding="false"
 		android:padding="4dp"
-		tools:listitem="@layout/item" />
+		tools:listitem="@layout/item"
+		app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
 	<com.google.android.material.floatingactionbutton.FloatingActionButton
 		android:id="@+id/buttonFloatingActionToSecondActivity"
@@ -31,4 +42,4 @@
 		android:contentDescription="@string/insert"
 		android:src="@drawable/ic_insert" />
 
-</RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -7,9 +7,11 @@ import android.provider.MediaStore
 import android.text.method.ScrollingMovementMethod
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_second.*
+import java.util.*
 
 class SecondActivity : AppCompatActivity() {
 	private var imageUri: Uri? = null
+	private val actionBarTitle = "Add Item"
 	private val defaultTitle = "No title"
 	private val defaultDescription = "No description"
 
@@ -20,6 +22,10 @@ class SecondActivity : AppCompatActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_second)
+
+		setSupportActionBar(findViewById(R.id.toolbar));
+		supportActionBar?.setDisplayHomeAsUpEnabled(true);
+		supportActionBar?.title = actionBarTitle;
 
 		editTextDescription.movementMethod = ScrollingMovementMethod()
 
@@ -39,11 +45,7 @@ class SecondActivity : AppCompatActivity() {
 				description = defaultDescription
 			}
 
-			val newItem = Item(
-				imageUri,
-				title,
-				description,
-			)
+			val newItem = Item(imageUri, title, description, UUID.randomUUID().toString())
 
 			val resultIntent = Intent()
 			resultIntent.putExtra(MainActivity.MAIN_ACTIVITY_EXTRA_PARCELABLE_ID, newItem)

@@ -26,6 +26,23 @@ This folder contains the application for **part 1** of the **first assignment**:
 
 - If the cell phone is rotated, the listing **should not** be lost.
 
+#### Part 2
+
+- Create a customized **ActionBar** for all activities;
+
+- In the **DetailsActivity**, the **ActionBar** `title` must correspond to the `item name`. Also, an [Up Action](https://developer.android.com/training/appbar/up-action) should be present in the **Action Bar**;
+
+- In the **SecondActivity**, the **ActionBar** `title` must be `Add Item`. Also, an [Up Action](https://developer.android.com/training/appbar/up-action) should be present in the **Action Bar**;
+
+- In the **DetailsActivity**, the **ActionBar** `title` must be `Item List`. Also, the **ActionBar** must be hided whenever the user scrolls the list;
+
+- In the **DetailsActivity**, the **ActionBar** must have a `filter` action which, when clicked, a [AlertDialog](https://developer.android.com/guide/topics/ui/dialogs) must be shown, with the following options:
+
+  - Option to show/hide items with the same `name`;
+  - Option to sort items by insertion order;
+  - Option to sort items by alphabetical order;
+  - Button `Ok` to execute the selected filters.
+
 ## 📝 License
 
 Copyright © 2020-present, [CS Android Contributors](https://github.com/lcbm/cs-android/graphs/contributors). This project is [ISC](LICENSE) licensed.

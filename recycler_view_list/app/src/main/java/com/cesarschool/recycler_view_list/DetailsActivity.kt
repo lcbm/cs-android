@@ -13,8 +13,12 @@ class DetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
 
-		val position = intent.getIntExtra(MainActivity.MAIN_ACTIVITY_EXTRA_ITEM_INDEX_ID, 0)
+//		val position = intent.getIntExtra(MainActivity.MAIN_ACTIVITY_EXTRA_ITEM_INDEX_ID, 0)
 		val item: Item? = intent.getParcelableExtra(MainActivity.MAIN_ACTIVITY_EXTRA_PARCELABLE_ID)
+
+		setSupportActionBar(findViewById(R.id.toolbar));
+		supportActionBar?.setDisplayHomeAsUpEnabled(true);
+		supportActionBar?.title = item?.title;
 
 		textViewTitle.text = item?.title
 		textViewDescription.text = item?.description
@@ -27,7 +31,7 @@ class DetailsActivity : AppCompatActivity() {
 
 		buttonFloatingActionRemove.setOnClickListener {
 			val resultIntent = Intent()
-			resultIntent.putExtra(MainActivity.MAIN_ACTIVITY_EXTRA_ITEM_INDEX_ID, position)
+			resultIntent.putExtra(MainActivity.MAIN_ACTIVITY_EXTRA_ITEM_INDEX_ID, item)
 			setResult(RESULT_OK, resultIntent)
 			finish()
 		}

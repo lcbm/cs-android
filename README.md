@@ -28,6 +28,8 @@ This folder contains the application for **part 1** of the **first assignment**:
 
 #### Part 2
 
+https://user-images.githubusercontent.com/31375047/116270065-26350600-a755-11eb-87de-1e7ef35a43a2.mp4
+
 - Create a customized **ActionBar** for all activities;
 
 - In the **DetailsActivity**, the **ActionBar** `title` must correspond to the `item name`. Also, an [Up Action](https://developer.android.com/training/appbar/up-action) should be present in the **Action Bar**;

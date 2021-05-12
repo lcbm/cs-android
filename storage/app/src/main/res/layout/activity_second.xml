@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".SecondActivity">
+
+	<include
+		android:id="@+id/toolbar"
+		layout="@layout/toolbar" />
+
+	<ScrollView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_centerInParent="true">
+
+		<androidx.cardview.widget.CardView
+			android:layout_width="300dp"
+			android:layout_height="wrap_content"
+			android:layout_margin="4dp">
+
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="match_parent">
+
+				<TextView
+					android:id="@+id/textViewTitleHeader"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_centerHorizontal="true"
+					android:layout_marginStart="16dp"
+					android:layout_marginTop="32dp"
+					android:layout_marginEnd="16dp"
+					android:text="@string/file_name"
+					android:textColor="@color/black"
+					android:textStyle="bold" />
+
+				<EditText
+					android:id="@+id/editTextFileName"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_below="@id/textViewTitleHeader"
+					android:layout_centerHorizontal="true"
+					android:layout_marginStart="16dp"
+					android:layout_marginTop="4dp"
+					android:layout_marginEnd="16dp"
+					android:hint="@string/file_name"
+					android:inputType="text" />
+
+				<TextView
+					android:id="@+id/textViewContentHeader"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_below="@id/editTextFileName"
+					android:layout_centerHorizontal="true"
+					android:layout_marginStart="16dp"
+					android:layout_marginTop="32dp"
+					android:layout_marginEnd="16dp"
+					android:text="@string/file_content"
+					android:textColor="@color/black"
+					android:textStyle="bold" />
+
+				<EditText
+					android:id="@+id/editTextFileContent"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_below="@id/textViewContentHeader"
+					android:layout_centerHorizontal="true"
+					android:layout_marginStart="16dp"
+					android:layout_marginTop="4dp"
+					android:layout_marginEnd="16dp"
+					android:gravity="top|left"
+					android:hint="@string/file_content"
+					android:inputType="textMultiLine"
+					android:maxLines="5"
+					android:minLines="1"
+					android:scrollbars="vertical" />
+
+				<TextView
+					android:id="@+id/textViewStorageHeader"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_below="@id/editTextFileContent"
+					android:layout_centerHorizontal="true"
+					android:layout_marginStart="16dp"
+					android:layout_marginTop="16dp"
+					android:layout_marginEnd="16dp"
+					android:layout_marginBottom="8dp"
+					android:text="@string/file_storage_type"
+					android:textColor="@color/black"
+					android:textStyle="bold" />
+
+				<RadioGroup
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:layout_below="@id/textViewStorageHeader"
+					android:paddingLeft="16dp"
+					android:layout_marginBottom="16dp" >
+
+					<RadioButton
+						android:id="@+id/radio_internal"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:onClick="onRadioButtonClicked"
+						android:text="@string/file_storage_internal" />
+
+					<RadioButton
+						android:id="@+id/radio_external"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:onClick="onRadioButtonClicked"
+						android:text="@string/file_storage_external" />
+
+					<CheckBox android:id="@+id/checkbox_use_jetpack_security"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="@string/file_encryption_enable_jetpack"
+						android:onClick="onCheckboxClicked"/>
+
+				</RadioGroup>
+
+			</RelativeLayout>
+
+		</androidx.cardview.widget.CardView>
+
+	</ScrollView>
+
+
+	<com.google.android.material.floatingactionbutton.FloatingActionButton
+		android:id="@+id/buttonFloatingActionInsert"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentRight="true"
+		android:layout_alignParentBottom="true"
+		android:layout_gravity="end|bottom"
+		android:layout_marginStart="16dp"
+		android:layout_marginTop="16dp"
+		android:layout_marginEnd="16dp"
+		android:layout_marginBottom="16dp"
+		android:contentDescription="@string/file_create"
+		android:src="@drawable/ic_check"
+		app:backgroundTint="@color/purple_500"
+		app:tint="@android:color/white" />
+
+</RelativeLayout>

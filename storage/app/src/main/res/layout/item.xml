@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_margin="4dp">
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:padding="8dp">
+
+		<TextView
+			android:id="@+id/textViewFileName"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/file_name"
+			android:textColor="@android:color/black"
+			android:textSize="18sp"
+			android:textStyle="bold" />
+
+		<TextView
+			android:id="@+id/textViewFileStorageType"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/textViewFileName"
+			android:text="@string/file_storage_type"
+			android:textColor="@android:color/black" />
+
+		<TextView
+			android:id="@+id/textViewFileEncryption"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/textViewFileStorageType"
+			android:text="@string/file_encryption"
+			android:textColor="@android:color/black" />
+
+		<ImageView
+			android:id="@+id/imageViewRemove"
+			android:layout_width="50dp"
+			android:layout_height="50dp"
+			android:layout_marginEnd="8dp"
+			android:layout_centerVertical="true"
+			android:layout_alignParentRight="true"
+			android:src="@drawable/ic_remove" />
+
+	</RelativeLayout>
+
+</androidx.cardview.widget.CardView>

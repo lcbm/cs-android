@@ -4,11 +4,11 @@
 
 ### `/recycler_view_list`
 
+This folder contains the application for **parts 1 and 2** of the **first assignment**.
+
 #### Part 1
 
 https://user-images.githubusercontent.com/31375047/115412593-d7262880-a1ca-11eb-963c-245247b4d54e.mp4
-
-This folder contains the application for **part 1** of the **first assignment**:
 
 - Create an Android project from scratch, without relying on any branch presented in class;
 
@@ -44,6 +44,22 @@ https://user-images.githubusercontent.com/31375047/116270065-26350600-a755-11eb-
   - Option to sort items by insertion order;
   - Option to sort items by alphabetical order;
   - Button `Ok` to execute the selected filters.
+
+### `/storage`
+
+This folder contains the application for **parts 1 and 2** of the **second assignment**.
+
+#### Part 1
+
+- **Main activity**: present a list of items with photo, name and a short description of the item (the list must be created using **RecyclerView**);
+
+- **RecyclerView**: must have the item name, storage type and a remove image that, when clicked, will remove the item from the list;
+
+- **Main activity**: there must be a FloatingButton, with the "+" symbol. By clicking on this button, a **SecondActivity** [for result](https://stackoverflow.com/questions/10407159) must be opened.
+
+- In the **Second Activity**, allow the user to inform the file with name and content, as well as choose the storage type (internal or external) via  Radio Buttons in a Radio Group. Finally, there should also be a checkbox with the option to encrypt the file with [Jetpack](https://developer.android.com/jetpack/androidx/releases/security);
+
+- When clicking on the image of the item, you should open another activity, **DetailsActivity** which shows details of the item (file name, storage, content, encryption);
 
 ## 📝 License
 

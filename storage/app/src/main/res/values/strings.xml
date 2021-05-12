@@ -1,0 +1,11 @@
+<resources>
+	<string name="app_name">Storage</string>
+	<string name="file_name">File Name</string>
+	<string name="file_content">Content</string>
+	<string name="file_create">Create</string>
+	<string name="file_storage_type">Storage Type</string>
+	<string name="file_storage_external">External</string>
+	<string name="file_storage_internal">Internal</string>
+	<string name="file_encryption">Encryption Type</string>
+	<string name="file_encryption_enable_jetpack">Enable Jetpack Security</string>
+</resources>

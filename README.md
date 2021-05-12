@@ -47,9 +47,9 @@ https://user-images.githubusercontent.com/31375047/116270065-26350600-a755-11eb-
 
 ### `/storage`
 
-This folder contains the application for **parts 1 and 2** of the **second assignment**.
+This folder contains the application for the **second assignment**.
 
-#### Part 1
+https://user-images.githubusercontent.com/31375047/117996620-ae500980-b318-11eb-87ce-3bae02ab310f.mp4
 
 - **Main activity**: present a list of items with photo, name and a short description of the item (the list must be created using **RecyclerView**);
 

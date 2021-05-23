@@ -61,6 +61,18 @@ https://user-images.githubusercontent.com/31375047/117996620-ae500980-b318-11eb-
 
 - When clicking on the image of the item, you should open another activity, **DetailsActivity** which shows details of the item (file name, storage, content, encryption);
 
+### `/shared_storage`
+
+This folder contains the application for the **third assignment**.
+
+- **Main activity**: show all files in the `MediaStore.Images` collection, from the shared storage;
+
+- **Main activity**: files must be presented in a **RecyclerView** with **2** columns;
+
+- **Main activity**: each item in the recycler view should have a `TextView` with `black` background and its text to the value of `MediaStore.Images.Media.DISPLAY_NAME`;
+
+- **Main activity**: make sure to prompt the the user for `READ_EXTERNAL_STORAGE` permission.
+
 ## 📝 License
 
 Copyright © 2020-present, [CS Android Contributors](https://github.com/lcbm/cs-android/graphs/contributors). This project is [ISC](LICENSE) licensed.

@@ -65,6 +65,8 @@ https://user-images.githubusercontent.com/31375047/117996620-ae500980-b318-11eb-
 
 This folder contains the application for the **third assignment**.
 
+https://user-images.githubusercontent.com/31375047/119281344-c7f02b80-bc0b-11eb-9bdd-01f7234e0806.mp4
+
 - **Main activity**: show all files in the `MediaStore.Images` collection, from the shared storage;
 
 - **Main activity**: files must be presented in a **RecyclerView** with **2** columns;

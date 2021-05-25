@@ -79,6 +79,8 @@ https://user-images.githubusercontent.com/31375047/119281344-c7f02b80-bc0b-11eb-
 
 This folder contains the application for the **fourth assignment**.
 
+https://user-images.githubusercontent.com/31375047/119504404-5070e800-bd42-11eb-86c1-df1e30f2ec24.mp4
+
 - **Main activity**: must have a **text view** for the user to inform their `name` (String);
 
 - **Main activity**: must have a **text view** for the user to inform their `age` (Int);

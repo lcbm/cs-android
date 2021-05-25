@@ -75,6 +75,19 @@ https://user-images.githubusercontent.com/31375047/119281344-c7f02b80-bc0b-11eb-
 
 - **Main activity**: make sure to prompt the the user for `READ_EXTERNAL_STORAGE` permission.
 
+### `/shared_preferences`
+
+This folder contains the application for the **fourth assignment**.
+
+- **Main activity**: must have a **text view** for the user to inform their `name` (String);
+
+- **Main activity**: must have a **text view** for the user to inform their `age` (Int);
+
+- **Main activity**: must have a **button** `ESCREVER` that saves the `name` and `age`, informed by the user, in a file, using [shared preferences](https://developer.android.com/training/data-storage/shared-preferences);
+
+- **Main activity**: must have a **button** `READ` that reads the `name` and `age` saved in a file, using [shared preferences](https://developer.android.com/training/data-storage/shared-preferences), in the format:
+  - `O seu nome é $name e sua idade é $age.`
+
 ## 📝 License
 
 Copyright © 2020-present, [CS Android Contributors](https://github.com/lcbm/cs-android/graphs/contributors). This project is [ISC](LICENSE) licensed.

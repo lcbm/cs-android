@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".MainActivity">
+
+	<com.google.android.material.appbar.AppBarLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical">
+
+		<include
+			android:id="@+id/toolbar"
+			layout="@layout/toolbar" />
+
+	</com.google.android.material.appbar.AppBarLayout>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:padding="16dp"
+		app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+		<EditText
+			android:id="@+id/editTextName"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true"
+			android:layout_marginBottom="16dp"
+			android:hint="@string/name"
+			android:inputType="text" />
+
+		<EditText
+			android:id="@+id/editTextAge"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/editTextName"
+			android:layout_centerHorizontal="true"
+			android:layout_marginBottom="16dp"
+			android:hint="@string/age"
+			android:inputType="number" />
+
+		<Button
+			android:id="@+id/buttonWrite"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/editTextAge"
+			android:layout_marginBottom="16dp"
+			android:backgroundTint="@color/gray_light"
+			android:text="@string/write"
+			android:textColor="@android:color/black" />
+
+		<Button
+			android:id="@+id/buttonRead"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/buttonWrite"
+			android:layout_marginBottom="16dp"
+			android:backgroundTint="@color/gray_light"
+			android:text="@string/read"
+			android:textColor="@android:color/black" />
+
+		<TextView
+			android:id="@+id/textViewContent"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/buttonRead"
+			android:layout_marginBottom="16dp"
+			android:maxLines="5"
+			android:minLines="1"
+			android:scrollbars="vertical" />
+
+	</RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

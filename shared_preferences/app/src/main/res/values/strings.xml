@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">shared_preferences</string>
+	<string name="name">Nome</string>
+	<string name="age">Idade</string>
+	<string name="write">ESCREVER</string>
+	<string name="read">LER</string>
+</resources>

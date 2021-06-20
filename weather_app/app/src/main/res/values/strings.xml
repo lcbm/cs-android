@@ -10,4 +10,6 @@
 	<string name="description_language_english">English (EN)</string>
 	<string name="description_language_portuguese">Portuguese (PT)</string>
 	<string name="save">SAVE</string>
+	<string name="search_button">SEARCH</string>
+	<string name="city">City</string>
 </resources>

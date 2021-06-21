@@ -1,19 +1,29 @@
 package com.cesarschool.weather_app
 
+import android.app.ProgressDialog
 import android.content.Context
+import android.content.SharedPreferences
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.cesarschool.weather_app.model.FindByCityResponse
 import kotlinx.android.synthetic.main.fragment_search.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
 
 class SearchFragment : Fragment() {
+
+	private val APP_ID = "8af80b5c7842aeb46c0367e599703d50"
 
 	override fun onCreateView(
 		inflater: LayoutInflater,
@@ -64,8 +74,63 @@ class SearchFragment : Fragment() {
 
 		bSearch.setOnClickListener {
 			val city = editTextCity?.text.toString()
-			val text = if (city.isBlank()) { "Please enter a city" } else { "Searching data for $city" }
-			Toast.makeText(activity, text, Toast.LENGTH_SHORT).show()
+			if (city.isBlank()) {
+				Toast.makeText(activity, "Please enter a city", Toast.LENGTH_SHORT).show()
+			} else {
+				getCityById(city)
+			}
 		}
+	}
+
+	private fun getSettingsSharedPreferences() : SharedPreferences {
+		return this.requireActivity().getSharedPreferences(SettingsFragment.PREFS_SETTINGS, Context.MODE_PRIVATE)
+	}
+
+	private fun getProgressBar(): ProgressDialog {
+		val dialog = ProgressDialog(activity) // this = YourActivity
+		dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER)
+		dialog.setMessage("Loading. Please wait...")
+		dialog.isIndeterminate = true
+		dialog.setCanceledOnTouchOutside(false)
+
+		return dialog
+	}
+
+	private fun getCityById(city: String) {
+		val progressDialog = getProgressBar()
+		progressDialog.show()
+
+		val prefs = getSettingsSharedPreferences()
+		val temperatureUnit = prefs.getString(
+			SettingsFragment.PREFS_SETTINGS_TEMPERATURE_UNIT,
+			SettingsFragment.PREFS_SETTINGS_TEMPERATURE_UNIT_CELSIUS
+		).toString()
+		val descriptionLanguage = prefs.getString(
+			SettingsFragment.PREFS_SETTINGS_DESCRIPTION_LANGUAGE,
+			SettingsFragment.PREFS_SETTINGS_DESCRIPTION_LANGUAGE_ENGLISH
+		).toString()
+
+		val service = RetrofitManager().getWeatherService()
+		val cities: Call<FindByCityResponse> = service.findByCityResponse(
+			city,
+			temperatureUnit,
+			descriptionLanguage,
+			APP_ID
+		)
+
+		cities.enqueue(object : Callback<FindByCityResponse> {
+			override fun onResponse(call: Call<FindByCityResponse>, response: Response<FindByCityResponse>) {
+				progressDialog.dismiss()
+				val city: FindByCityResponse? = response.body()
+				// TODO: Add city to recycler view.
+				Toast.makeText(activity, city.toString(), Toast.LENGTH_SHORT).show()
+			}
+
+			override fun onFailure(call: Call<FindByCityResponse>, t: Throwable) {
+				progressDialog.dismiss()
+				Toast.makeText(activity, t.toString(), Toast.LENGTH_SHORT).show()
+				Log.e("SEARCH_FRAGMENT", t.toString())
+			}
+		})
 	}
 }

@@ -14,6 +14,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.cesarschool.weather_app.model.FindByCityResponse
 import kotlinx.android.synthetic.main.fragment_search.*
 import retrofit2.Call
@@ -24,6 +27,8 @@ import retrofit2.Response
 class SearchFragment : Fragment() {
 
 	private val APP_ID = "8af80b5c7842aeb46c0367e599703d50"
+	private lateinit var weatherViewModel: WeatherViewModel
+	private var adapter = WeatherAdapter()
 
 	override fun onCreateView(
 		inflater: LayoutInflater,
@@ -34,6 +39,16 @@ class SearchFragment : Fragment() {
 		renderConnectionToast()
 		initButtonListeners(view)
 		return view
+	}
+
+	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+		super.onViewCreated(view, savedInstanceState)
+		weather_recycler_view.adapter = adapter
+		weather_recycler_view.layoutManager = LinearLayoutManager(activity)
+		weatherViewModel = ViewModelProvider(this).get(WeatherViewModel::class.java)
+		weatherViewModel.weatherList.observe(requireActivity(), Observer {
+			adapter.submitList(it)
+		})
 	}
 
 	private fun renderConnectionToast() {
@@ -77,13 +92,14 @@ class SearchFragment : Fragment() {
 			if (city.isBlank()) {
 				Toast.makeText(activity, "Please enter a city", Toast.LENGTH_SHORT).show()
 			} else {
-				getCityById(city)
+				getWeatherByCity(city)
 			}
 		}
 	}
 
-	private fun getSettingsSharedPreferences() : SharedPreferences {
-		return this.requireActivity().getSharedPreferences(SettingsFragment.PREFS_SETTINGS, Context.MODE_PRIVATE)
+	private fun getSettingsSharedPreferences(): SharedPreferences {
+		return this.requireActivity()
+			.getSharedPreferences(SettingsFragment.PREFS_SETTINGS, Context.MODE_PRIVATE)
 	}
 
 	private fun getProgressBar(): ProgressDialog {
@@ -96,7 +112,7 @@ class SearchFragment : Fragment() {
 		return dialog
 	}
 
-	private fun getCityById(city: String) {
+	private fun getWeatherByCity(city: String) {
 		val progressDialog = getProgressBar()
 		progressDialog.show()
 
@@ -119,11 +135,16 @@ class SearchFragment : Fragment() {
 		)
 
 		cities.enqueue(object : Callback<FindByCityResponse> {
-			override fun onResponse(call: Call<FindByCityResponse>, response: Response<FindByCityResponse>) {
+			override fun onResponse(
+				call: Call<FindByCityResponse>,
+				response: Response<FindByCityResponse>
+			) {
 				progressDialog.dismiss()
 				val city: FindByCityResponse? = response.body()
-				// TODO: Add city to recycler view.
-				Toast.makeText(activity, city.toString(), Toast.LENGTH_SHORT).show()
+				if (city != null) {
+					weatherViewModel.updateCities(city.list)
+					adapter.notifyDataSetChanged()
+				}
 			}
 
 			override fun onFailure(call: Call<FindByCityResponse>, t: Throwable) {

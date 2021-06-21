@@ -90,6 +90,41 @@ https://user-images.githubusercontent.com/31375047/119504404-5070e800-bd42-11eb-
 - **Main activity**: must have a **button** `READ` that reads the `name` and `age` saved in a file, using [shared preferences](https://developer.android.com/training/data-storage/shared-preferences), in the format:
   - `O seu nome é $name e sua idade é $age.`
 
+### `/weather_app`
+
+This folder contains the application for the **fifth assignment**.
+
+- Create a **Bottom Navigation View**:
+  - Add [Material](https://material.io/components/bottom-navigation/android#using-bottom-navigation) dependency;
+  - Create os **Bottom Navigation** items: `Search`, `Favorite` and `Settings`;
+  - Add **BottomNavigationView** to the layout;
+  - Listen to the item clicks;
+  - Add 3 fragments, one for each **Bottom Navigation** items.
+
+- In the **Settings** fragment:
+  - Add a **Radio Groups** which allows the user to select the `temperature unit` (`celsius` or `fahrenheit`);
+  - Add a **Radio Group** which allows the user to select the `description language` (`portuguese` or `english`);
+  - Add a `SAVE` button to persist data in **SharedPreferences**.
+
+- In the **Search** fragment:
+  - Add a **EditText** to allow the user to enter a `city` name;
+  - Add a `SEARCH` **Button**;
+  - Implement **button** click event;
+  - Check internet connection: in case the device is not connected to the internet, show a **Toast** informing the user that the device is `offline` -- otherwise, `online`.
+
+- In the **Search** fragment, the `SEARCH` button must make a `find` request to [OpenWeatherMap Current Weather API](https://openweathermap.org/current):
+  - Create an interface for the [OpenWeatherMap Current Weather API](https://openweathermap.org/current);
+  - Create a class to map the response `JSON` data, from the [OpenWeatherMap Current Weather API](https://openweathermap.org/current);
+  - Create a **RetrofitManager** class to obtaina an Retrofit instance;
+  - Make request asynchronously and show a **ProgressBar** when necessary.
+
+- In the **Search** fragment, add a **RecyclerView** to show the request results:
+  - Add **RecyclerView** to the layout;
+  - Create the item layout;
+  - Create and Adapter;
+  - Create a `RecyclerView.ItemDecoration` (adds margin to the **RecyclerView**);
+  - Download icons for the weather, using [Glide](https://github.com/bumptech/glide).
+
 ## 📝 License
 
 Copyright © 2020-present, [CS Android Contributors](https://github.com/lcbm/cs-android/graphs/contributors). This project is [ISC](LICENSE) licensed.

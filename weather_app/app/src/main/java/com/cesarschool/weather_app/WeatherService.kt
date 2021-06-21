@@ -12,5 +12,5 @@ interface WeatherService {
 		@Query("units") units: String,
 		@Query("lang") language: String,
 		@Query("appid") apiKey: String,
-	) : Call<FindByCityResponse>
+	): Call<FindByCityResponse>
 }

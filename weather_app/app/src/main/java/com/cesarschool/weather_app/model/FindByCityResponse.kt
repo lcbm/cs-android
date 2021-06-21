@@ -13,5 +13,5 @@ data class FindByCityResponse(
 	var count: Int,
 
 	@SerializedName("list")
-	var list: kotlin.collections.List<List>,
+	var list: ArrayList<Cities>,
 )

@@ -94,6 +94,8 @@ https://user-images.githubusercontent.com/31375047/119504404-5070e800-bd42-11eb-
 
 This folder contains the application for the **fifth assignment**.
 
+https://user-images.githubusercontent.com/31375047/122837973-718a1180-d2cb-11eb-8615-6f5df9b9fcc7.mp4
+
 - Create a **Bottom Navigation View**:
   - Add [Material](https://material.io/components/bottom-navigation/android#using-bottom-navigation) dependency;
   - Create os **Bottom Navigation** items: `Search`, `Favorite` and `Settings`;
